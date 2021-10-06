@@ -7,7 +7,9 @@
     <!--========== Boostrap ==========-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!--========== CSS ==========-->
+    <link rel="stylesheet" href="style.css">
     <!-- ============== Bar Icon ================= -->
+    <link rel="shortcut icon" href="asset/code.png" type="image/x-icon">
     <title>Project Lab</title>
     <!-- ================ Font ================= -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
@@ -15,36 +17,124 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Nunito Sans';
+        }
+    </style>
 </head>
 
 <body>
     <!-- Header -->
-    <div>
-        
+    <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-light px-5">
+            <a class="navbar-brand mr-5" href="#">LAB PW</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Blog
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Kesehatan</a>
+                            <a class="dropdown-item" href="#">Olahraga</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
 
     <!-- Main Content -->
-    <div>
+    <div class="main-content">
         <!-- Banner -->
-        <div>
-           
+        <div class="banner p-5 mx-5">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 text-center">
+                    <img src="asset/code.png" width="350px" alt="" srcset="">
+                </div>
+                <div class="col-lg-6 col-sm-12 text-white">
+                    <h1>Ayo Belajar Pemprograman Web ! :)</h1>
+                    <p>setiap hari rabu kita belajar pemprograman Web,
+                        selalu semangat dan jaga kesehatan semuanyaa ...
+                    </p>
+                    <button class="btn btn-lg btn-light">Ayo Mulai Belajar </button>
+                </div>
+            </div>
         </div>
 
         <!-- Icon -->
-        <div>
-
+        <div class="icon my-3">
+            <div class="row">
+                <div class="col-3  text-center">
+                    <img src="asset/facebook.png" width="100px" alt="" srcset="">
+                </div>
+                <div class="col-3  text-center">
+                    <img src="asset/google.png" width="100px" alt="" srcset="">
+                </div>
+                <div class="col-3  text-center">
+                    <img src="asset/instagram.png" width="100px" alt="" srcset="">
+                </div>
+                <div class="col-3  text-center">
+                    <img src="asset/twitter.png" width="100px" alt="" srcset="">
+                </div>
+            </div>
         </div>
 
         <!-- Card -->
-        <div>
-
+        <div class="card-fitur container text-center">
+            <h4>FITUR</h4>
+            <h1>PRAKTIKUM PEMPROGRAMAN WEB</h1>
+            <div class="row">
+                <div class="col-lg-4 col-sm-12">
+                    <div class="card p-3">
+                        <img class="card-img-top" src="asset/gamepad.png" width="200px" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Jangan lupa mabar </h5>
+                            <p class="card-text">abis main jangan lupa belajar</p>
+                            <a href="#" class="btn btn-primary">Belajar Kuy</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                    <div class="card p-3">
+                        <img class="card-img-top" src="asset/burger.png" width="200px" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Jangan lupa mabar </h5>
+                            <p class="card-text">abis main jangan lupa belajar</p>
+                            <a href="#" class="btn btn-primary">Belajar Kuy</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                    <div class="card p-3">
+                        <img class="card-img-top" src="asset/comment.png" width="200px" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Jangan lupa mabar </h5>
+                            <p class="card-text">abis main jangan lupa belajar</p>
+                            <a href="#" class="btn btn-primary">Belajar Kuy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-
     <!-- Footer -->
-    <footer>
-
+    <footer class="footer">
+        <p>Copyright - Praktikum Lab</p>
     </footer>
 </body>
 
