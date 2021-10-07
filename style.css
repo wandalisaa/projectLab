@@ -7,15 +7,30 @@
     background-image: url('asset/banner.png');
     background-size: cover;
     border-radius: 25px;
+
 }
 .main-content .banner h1{
-    color: #7285ff;
+    color: white;
+    font-weight: revert;
+    text-shadow: 5px 5px 15px #80808026;
 }
 .main-content .banner p{
-    color: #7285ff;
+    color: white;
+    text-shadow: 5px 5px 15px #80808026;
+}
+.main-content .banner div{
+    place-self: center;
+}
+.card-fitur h1{
+    font-weight: 700;
+    color: rgb(43, 43, 43);
 }
 .card-fitur h4{
-    color: rgb(110 128 253);
+    text-transform: uppercase;
+    background: linear-gradient(to right, #2cfeff 0%, #ff12ed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
 }
 .card-fitur .card{
     border: none;
