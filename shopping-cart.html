@@ -17,6 +17,9 @@
     <script src="asset/js/jquery-3.2.1.min.js"></script>
     <script src="asset/js/popper.min.js"></script>
     <script src="asset/js/bootstrap.min.js"></script>
+    <script>
+
+    </script>
 </head>
 
 <body>
@@ -79,7 +82,8 @@
                         <h3 class="small">Men's running shoes</h3>
                     </div>
                     <div class="description">
-                        <h3 class="row">Rp<div class="product-price" hidden>1199000</div>1.199.000,00</h3>
+                        
+                        <h3 class="row"><div class="product-price" hidden>1199000</div>Rp1.199.000,00</h3>
                         <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                             Ipsum has been the industry's.</p>
                     </div>
@@ -89,7 +93,7 @@
                     </div>
                     <div class="size-container">
                         <h3 class="title">Shipping To<h3>
-                            <select class="form-select form-control" name="city" id="city" aria-label="Default select example">
+                            <select class="form-select form-control" onchange="recalculateCart()" name="city" id="city" aria-label="Default select example">
                                 <option value="0" selected disabled >Select City</option>
                                 <option value="50000">Medan</option>
                                 <option value="70000">Surabaya</option>
@@ -140,29 +144,53 @@
     
 
     /* inisialisasi variabel */
-
+    var taxRate = 0.05; 
+    var fadeTime = 300;
 
     /* Aksi */
+    $('.product-quantity input').change( function() {
+        recalculateCart();
+    });
+    // $('#city').change( function() {
+    //     recalculateCart();
+    // });
 
-    // format rupiah
+    // format rupiah = 10000 => Rp 10.000,00
     function format(money)
     {
-
-
+        return new Intl.NumberFormat('id-ID',
+        {style: 'currency', currency: 'IDR'}
+        ).format(money);
     }
 
     /* Fungsi Kalkulasi */
     function recalculateCart()
     {
-
-    /* kalkulasi harga */
-
-
-    /* kalkulasi total */
+        /* kalkulasi harga */
+        var shippingRate = $('#city option').filter(':selected').val();
+        var price = $('.product-price').text();
+        var quantity = $('.product-quantity input').val();
+        var subtotal = price * quantity;
  
+        /* kalkulasi total */
+        var tax = subtotal * taxRate;
+        var shipping = subtotal > 0 ? parseInt(shippingRate) : 0; 
+        var total = subtotal + tax + shipping;
 
-    /* update tampilan */
-   
+        /* update tampilan */
+        $('.totals-value').fadeOut(fadeTime , function(){
+
+            $('#cart-subtotal').html(format(subtotal));
+            $('#cart-tax').html(format(tax));
+            $('#cart-shipping').html(format(shipping));
+            $('#cart-total').html(format(total));
+    
+            $('.totals-value').fadeIn(fadeTime);
+
+        });
+
+
+        
 
     }
 
