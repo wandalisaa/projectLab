@@ -18,9 +18,6 @@
     <script src="asset/js/popper.min.js"></script>
     <script src="asset/js/bootstrap.min.js"></script>
 </head>
-<?php
-$url = $_SERVER['REQUEST_URI'];
-?>
 
 <body>
     <!-- Header -->
@@ -31,7 +28,7 @@ $url = $_SERVER['REQUEST_URI'];
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                
+
                     <!-- <ul class="navbar-nav ">
                         <li class="nav-item active ">
                             <a class="nav-link" href="dashboard.php">
