@@ -17,7 +17,12 @@
     <script src="asset/js/jquery-3.2.1.slim.min.js"></script>
     <script src="asset/js/popper.min.js"></script>
     <script src="asset/js/bootstrap.min.js"></script>
+
 </head>
+<?php
+$url = $_SERVER['REQUEST_URI'];
+session_start();
+?>
 
 <body>
     <!-- Header -->
@@ -28,33 +33,56 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <!-- <ul class="navbar-nav ">
-                        <li class="nav-item active ">
-                            <a class="nav-link" href="dashboard.php">
-                               Manage
-                            </a>
+                <?php
+                if (isset($_SESSION['level'])) { ?>
+                    <?php
+                    if ($_SESSION['level'] == 'admin') {
+                    ?>
+                        <ul class="navbar-nav ">
+                            <li class="nav-item active ">
+                                <a class="nav-link" href="manage.php">
+                                    Manage
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav justify-content-end w-100">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="user.php?aksi=logout">
+                                    <button class="btn btn-primary">Logout</button>
+                                </a>
+                            </li>
+                        </ul>
+                    <?php
+                    }
+                    ?>
+                    <?php
+                    if ($_SESSION['level'] == 'user') {
+                    ?>
+                        <ul class="navbar-nav ">
+                            <li class="nav-item <?php echo $url == '/proLab/dashboard.php' ? 'active' : NULL; ?> ">
+                                <a class="nav-link" href="dashboard.php">
+                                    Dashboard
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav justify-content-end w-100">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="user.php?aksi=logout">
+                                    <button class="btn btn-primary">Logout</button>
+                                </a>
+                            </li>
+                        </ul>
+                    <?php
+                    }
+                    ?>
+                <?php } 
+                else {
+                ?>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                         </li>
-                    </ul> -->
-
-                    <!-- <ul class="navbar-nav ">
-                        <li class="nav-item <?php echo $url == '/projectLab/dashboard.php' ? 'active' : NULL ; ?> ">
-                            <a class="nav-link" href="dashboard.php">
-                                Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo $url == '/projectLab/list.php' ? 'active' : NULL ; ?>">
-                            <a class="nav-link " href="list.php">
-                                List To Do
-                            </a>
-                        </li>
-                    </ul> -->
-
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
+                    </ul>
                     <ul class="navbar-nav justify-content-end w-100">
                         <li class="nav-item ">
                             <a class="nav-link" href="register.php">
@@ -67,6 +95,9 @@
                             </a>
                         </li>
                     </ul>
+                <?php
+                }
+                ?>
             </div>
         </nav>
     </div>

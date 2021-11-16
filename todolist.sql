@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 12, 2021 at 05:12 AM
+-- Generation Time: Nov 16, 2021 at 03:32 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -48,8 +48,9 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `foto` varchar(100) NOT NULL,
-  `level` int(1) NOT NULL
+  `foto` varchar(100) DEFAULT NULL,
+  `level` varchar(5) NOT NULL,
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -82,7 +83,7 @@ ALTER TABLE `todo`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

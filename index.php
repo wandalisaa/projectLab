@@ -1,5 +1,18 @@
 
+<?php
+// include('');
+// include('');
 
+// if (isset()) {
+//     if ( == 'admin') {
+//         header("Location: manage.php");
+//     }else if ( == 'user'){
+//         header("Location: dashboard.php");
+//     }
+// }
+
+
+?>
     <!-- Main Content -->
     <div class="main-content">
         <!-- Banner -->
@@ -8,12 +21,9 @@
                 <div class="col-lg-6 col-sm-12 text-center">
                     <img src="asset/img/code.png" width="350px" alt="" srcset="">
                 </div>
-                <div class="col-lg-6 col-sm-12 text-white">
+                <div class="col-lg-6 col-sm-12 text-primary">
                     <h1>Ayo Belajar Pemprograman Web ! :)</h1>
-                    <p>setiap hari rabu kita belajar pemprograman Web,
-                        selalu semangat dan jaga kesehatan semuanyaa ...
-                    </p>
-                    <button class="btn btn-lg btn-light">Ayo Mulai Belajar </button>
+                    <button class="btn btn-lg btn-light ">Ayo Mulai Belajar </button>
                 </div>
             </div>
         </div>
@@ -75,3 +85,6 @@
         </div>
     </div>
 
+<?php
+// include('');
+?>
