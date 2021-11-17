@@ -1,10 +1,12 @@
 <?php
-// include('header.php');
-// if ( == 'user') {
-//     header("Location: dashboard.php");
-// }else if ( != 'admin'){
-//     header("Location: index.php");
-// }
+include('header.php');
+include('include/koneksi.php');
+
+if ( $_SESSION['level'] == 'user') {
+    header("Location: dashboard.php");
+}else if ( $_SESSION['level']  != 'admin'){
+    header("Location: index.php");
+}
 ?>
 
 <div class="container" style="min-height: 100vh;">

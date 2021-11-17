@@ -6,7 +6,10 @@ include('include/koneksi.php');
 // Register
 if( $_GET['aksi'] == 'register' ){
 
-    
+    $nama = $_POST['nama'];
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+    $level = 'user';
 
     $password = md5($pass);
     
@@ -18,20 +21,25 @@ if( $_GET['aksi'] == 'register' ){
 
 	if ($result){
 
-       
+        $_SESSION['sukses'] = 'Registrasi anda berhasil , silahkan login ';
+
+        header("location: login.php");
 
     }else{
 
+        $_SESSION['gagal'] = 'Registrasi Anda gagal';
+
+        header("location: register.php");
 
     }
-
-    header("location: login.php");
 }
 
 
 // Login
 if( $_GET['aksi'] == 'login' ){
 
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
 
     $login = mysqli_query($conn , "SELECT * FROM user WHERE email='$email' and password='$password'");
     $cek = mysqli_num_rows($login);
@@ -40,18 +48,21 @@ if( $_GET['aksi'] == 'login' ){
 
     if($cek > 0){
 
-    while($log = $login->fetch_array(MYSQLI_ASSOC)) {
+        while($log = $login->fetch_array(MYSQLI_ASSOC)) {
 
+            $_SESSION['id'] = $log['id'];
+            $_SESSION['nama'] = $log['nama'];
+            $_SESSION['email'] = $log['email'];
+            $_SESSION['level'] = $log['level'];
+        
+        }
+        $_SESSION['sukses'] = 'Selamat Datang!'.$_SESSION['nama'];
 
-    
-    }
-    $_SESSION['sukses'] = 'Selamat Datang!'.$nama;
-
-    if ($_SESSION['level'] == 'admin') {
-        header("Location: manage.php");
-    }else{
-        header("Location: dashboard.php");
-    }
+        if ($_SESSION['level'] == 'admin') {
+            header("Location: manage.php");
+        }else{
+            header("Location: dashboard.php");
+        }
 
     } else {
         session_unset();
@@ -62,8 +73,10 @@ if( $_GET['aksi'] == 'login' ){
 
 // logout
 if ($_GET['aksi'] == 'logout') {
+
     session_start();
 	
+    session_destroy();
 
 	header("location: index.php");
 
@@ -72,7 +85,7 @@ if ($_GET['aksi'] == 'logout') {
 // Validasi
 if ($_GET['aksi'] == 'validasi') {
 
-    
+    $email = $_POST['email'];
     $sql = "SELECT * from user where email = '$email'";
     $process = mysqli_query($conn, $sql);
     $num = mysqli_num_rows($process);

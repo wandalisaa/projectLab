@@ -1,13 +1,14 @@
 <?php
-// include('');
+include('header.php');
+include('include/koneksi.php');
 
-// if (isset($_SESSION['level'])) {
-//     if ($_SESSION['level'] == 'admin') {
-//         header("Location: manage.php");
-//     }else if ($_SESSION['level'] == 'user'){
-//         header("Location: dashboard.php");
-//     }
-// }
+if (isset($_SESSION['level'])) {
+    if ( $_SESSION['level'] == 'admin') {
+        header("Location: manage.php");
+    }else if ( $_SESSION['level'] == 'user'){
+        header("Location: dashboard.php");
+    }
+}
 ?>
 
 <div class="container" style="height: 91vh;">

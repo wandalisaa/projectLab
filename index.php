@@ -1,7 +1,7 @@
 
 <?php
-// include('');
-// include('');
+include('header.php');
+include('include/koneksi.php');
 
 // if (isset()) {
 //     if ( == 'admin') {
@@ -11,8 +11,9 @@
 //     }
 // }
 
-
 ?>
+
+
     <!-- Main Content -->
     <div class="main-content">
         <!-- Banner -->
@@ -86,5 +87,5 @@
     </div>
 
 <?php
-// include('');
+include('footer.php');
 ?>

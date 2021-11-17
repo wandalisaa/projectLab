@@ -1,10 +1,12 @@
 <?php
-// include('header.php');
-// if ( == 'admin') {
-//     header("Location: manage.php");
-// }else if ( != 'user'){
-//     header("Location: index.php");
-// }
+include('header.php');
+include('include/koneksi.php');
+
+if ( $_SESSION['level'] == 'admin') {
+    header("Location: manage.php");
+}else if ( $_SESSION['level'] != 'user'){
+    header("Location: index.php");
+}
 ?>
 <div class="container" style="min-height: 100vh;">
     <div class="jumbotron bg-light text-dark">
