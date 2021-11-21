@@ -11,12 +11,17 @@
     <!-- ============== Bar Icon ================= -->
     <link rel="shortcut icon" href="asset/img/code.png" type="image/x-icon">
     <title>Project Lab</title>
+    <!-- ===================== datatables ==================== -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <!-- ================ Font =====/ ============ -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
     <!-- ================ JS ================== -->
     <script src="asset/js/jquery-3.2.1.slim.min.js"></script>
     <script src="asset/js/popper.min.js"></script>
     <script src="asset/js/bootstrap.min.js"></script>
+    <!-- <script src="asset/tinymce/js/tinymce/tinymce.js"></script> -->
+    <!-- =================== datatables ================= -->
+    <!-- <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script> -->
 
 </head>
 <?php

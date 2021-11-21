@@ -1,10 +1,10 @@
 <?php
 include('header.php');
-include('include/koneksi.php');
+
 if (isset($_SESSION['level'])) {
-    if ( $_SESSION['level'] == 'admin') {
+    if ($_SESSION['level'] == 'admin') {
         header("Location: manage.php");
-    }else if ( $_SESSION['level'] == 'user'){
+    }else if ($_SESSION['level'] == 'user'){
         header("Location: dashboard.php");
     }
 }
@@ -19,21 +19,20 @@ if (isset($_SESSION['level'])) {
                 <h1>Register</h1>
             </div>
             <div class="form-content">
-                <!-- membuat form register -->
             <form id="form" method="POST" action="user.php?aksi=register">
                     <div class="form-group">
                         <label for="nama">Name</label>
-                        <input type="nama" id="nama" name="nama"/>
+                        <input type="nama" id="nama" name="nama" required />
                         <div id="validasi-nama"></div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email"/>
+                        <input type="email" id="email" name="email" required />
                         <div id="validasi-email"></div>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="pass" name="pass"/>
+                        <input type="password" id="pass" name="pass" required />
                         <div id="validasi-password"></div>
                     </div>
                     <div class="form-group">
@@ -63,19 +62,19 @@ if (isset($_SESSION['level'])) {
     $('#form').submit(function(){
        
         if ($('#nama').val().length  < 8) {
-        $('#validasi-nama').html('<p class="text-danger"> Silahkan isi nama anda min 8 karakter </p>');
+        $('#validasi-nama').html('<p class="text-danger">Silahkan isi nama anda min. 8 karakter </p>');
         return false;
        } 
 
        if ($('#email').val().length  == 0) {
-        $('#validasi-email').html('<p class="text-danger"> Silahkan E-mail anda diisikan terlebih dahulu </p>');
+        $('#validasi-email').html('<p class="text-danger">Silahkan isi email anda </p>');
         return false;
-       }
+       } 
 
-       if ($('#pass').val().length < 10) {
-        $('#validasi-password').html('<p class="text-danger">Masukkan password min 10 karakter</p>');
+       if ($('#pass').val().length  < 8) {
+        $('#validasi-password').html('<p class="text-danger">Silahkan isi password anda min. 8 karakter </p>');
         return false;
-        } 
+       } 
     });
 });
 

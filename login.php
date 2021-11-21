@@ -1,11 +1,10 @@
 <?php
 include('header.php');
-include('include/koneksi.php');
 
 if (isset($_SESSION['level'])) {
-    if ( $_SESSION['level'] == 'admin') {
+    if ($_SESSION['level'] == 'admin') {
         header("Location: manage.php");
-    }else if ( $_SESSION['level'] == 'user'){
+    }else if ($_SESSION['level'] == 'user'){
         header("Location: dashboard.php");
     }
 }

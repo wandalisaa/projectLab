@@ -21,17 +21,15 @@ if( $_GET['aksi'] == 'register' ){
 
 	if ($result){
 
-        $_SESSION['sukses'] = 'Registrasi anda berhasil , silahkan login ';
-
-        header("location: login.php");
+        $_SESSION['sukses'] = 'Registrasi Berhasil , Silahkan login';
 
     }else{
 
-        $_SESSION['gagal'] = 'Registrasi Anda gagal';
-
-        header("location: register.php");
+        $_SESSION['gagal'] = 'Registrasi Gagal';
 
     }
+
+    header("location: login.php");
 }
 
 
@@ -48,21 +46,21 @@ if( $_GET['aksi'] == 'login' ){
 
     if($cek > 0){
 
-        while($log = $login->fetch_array(MYSQLI_ASSOC)) {
+    while($log = $login->fetch_array(MYSQLI_ASSOC)) {
 
-            $_SESSION['id'] = $log['id'];
-            $_SESSION['nama'] = $log['nama'];
-            $_SESSION['email'] = $log['email'];
-            $_SESSION['level'] = $log['level'];
-        
-        }
-        $_SESSION['sukses'] = 'Selamat Datang!'.$_SESSION['nama'];
+        $_SESSION['id'] = $log['id'];
+        $_SESSION['nama'] = $log['nama'];
+        $_SESSION['email'] = $log['email'];
+        $_SESSION['level'] = $log['level'];
+    
+    }
+    $_SESSION['sukses'] = 'Selamat Datang!'.$nama;
 
-        if ($_SESSION['level'] == 'admin') {
-            header("Location: manage.php");
-        }else{
-            header("Location: dashboard.php");
-        }
+    if ($_SESSION['level'] == 'admin') {
+        header("Location: manage.php");
+    }else{
+        header("Location: dashboard.php");
+    }
 
     } else {
         session_unset();
@@ -73,11 +71,9 @@ if( $_GET['aksi'] == 'login' ){
 
 // logout
 if ($_GET['aksi'] == 'logout') {
-
     session_start();
 	
-    session_destroy();
-
+	session_destroy();
 	header("location: index.php");
 
 }
@@ -89,7 +85,6 @@ if ($_GET['aksi'] == 'validasi') {
     $sql = "SELECT * from user where email = '$email'";
     $process = mysqli_query($conn, $sql);
     $num = mysqli_num_rows($process);
-
     if($num == 0){
         echo "<p class='text-primary'>email masih tersedia</p>";
     }else{
