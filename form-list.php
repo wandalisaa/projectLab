@@ -9,11 +9,8 @@ if ($_SESSION['level'] == 'admin') {
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <form class="needs-validation" novalidate method="POST" action="">
+            <form class="needs-validation" novalidate method="POST" action="list.php?aksi=tambah">
                 <h5 class="modal-title">Tambah List</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
                 <div class="form-row">
                     <div class="col-md-12 mb-3">
                         <label for="judul">Judul Kegiatan</label>
@@ -67,6 +64,7 @@ if ($_SESSION['level'] == 'admin') {
         </div>
     </div>
 </div>
+
 <script>
 
 (function() {
@@ -85,11 +83,11 @@ if ($_SESSION['level'] == 'admin') {
         }, false);
     })();
 
-    
 
     tinymce.init({
-        selector: ''
+        selector: '#keterangan'
     });
+    
 </script>
 <?php
 include('footer.php');
