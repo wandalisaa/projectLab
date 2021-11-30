@@ -91,4 +91,18 @@ if ($_GET['aksi'] == 'validasi') {
         echo " <p class='text-danger'>email tidak tersedia</p>";
     }
 
+    // hapus
+    if ($_GET['aksi'] == 'hapus') {
+
+        $id = $_GET['id'];
+    
+        $sql = "DELETE FROM user WHERE id = $id";   
+        $result = mysqli_query($conn, $sql );
+        
+        if ($result) {
+            header("Location: manage.php");
+        } else {
+            echo("Error description: " . mysqli_error($conn));
+        }
+    }
 }
