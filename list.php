@@ -69,7 +69,7 @@ if ($_GET['aksi'] == 'selesai') {
 
     $id = $_GET['id'];
 
-    $sql = "";   
+    $sql = "UPDATE todo SET `status` = 'selesai'";   
     $result = mysqli_query($conn, $sql );
     
     if ($result) {
