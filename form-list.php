@@ -8,12 +8,18 @@ if ($_SESSION['level'] == 'admin') {
 }
 
 // init var
+$judul = null;
+$tempat = null;
+$waktu = null;
+$kategori = null;
+$keterangan = null;
+$status = null;
 
 if ($_GET['aksi'] == 'edit') {
     $id = $_GET['id'];
     $id_user = $_SESSION['id'];
     // sql
-    $data = $conn->query("");
+    $data = $conn->query("SELECT * FROM todo WHERE `id` = $id");
 
     while ($list = $data->fetch_array(MYSQLI_ASSOC)) :
         $judul = $list['judul'];
@@ -41,14 +47,14 @@ if ($_GET['aksi'] == 'edit') {
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
                             <label for="judul">Judul Kegiatan</label>
-                            <input type="text" class="form-control" id="judul" value="" name="judul" placeholder="Judul Kegiatan" required>
+                            <input type="text" class="form-control" id="judul" value="<?=$judul?>" name="judul" placeholder="Judul Kegiatan" required>
                             <div class="invalid-feedback">
                                 Silahkan Isi Judul Kegiatan Anda
                             </div>
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="tempat">Tempat</label>
-                            <input type="text" class="form-control" value="" name="tempat" id="tempat" placeholder="Tempat" required>
+                            <input type="text" class="form-control" value="<?=$tempat?>" name="tempat" id="tempat" placeholder="Tempat" required>
                             <div class="invalid-feedback">
                                 Silahkan Isi Tempat Kegiatan Anda
                             </div>
@@ -73,7 +79,7 @@ if ($_GET['aksi'] == 'edit') {
                     <div class="form-group">
                         <label for="kategori">Kategori</label>
                         <select class="custom-select" name="kategori" id="kategori" required>
-                            <option value="" selected><?= $kategori ?></option>
+                            <option value="<?=$kategori?>" selected><?= $kategori ?></option>
                             <option value="Tugas Kuliah">Tugas Kuliah</option>
                             <option value="Magang">Magang</option>
                             <option value="Lain - Lain">Lain - Lain</option>
@@ -82,14 +88,16 @@ if ($_GET['aksi'] == 'edit') {
                     </div>
                     <div class="form-group">
                         <label for="keterangan">Keterangan</label>
-                        <textarea class="form-control" id="keterangan" name="keterangan" required>Keterangan Kegiatan</textarea>
-                        <div class="invalid-feedback">\<?= $keterangan ?></div>
+                        <textarea class="form-control" id="keterangan" name="keterangan" required><?= $keterangan ?></textarea>
+                        <div class="invalid-feedback">
+                            Silahkan tambahkan keterangan
+                        </div>
                     </div>
                     <?php
                     if ($_GET['aksi'] == 'edit') { ?>
                         <label for="status">status</label>
                         <select class="custom-select" name="status" id="status" required>
-                            <option value="" selected><?= $status ?></option>
+                            <option value="<?= $status ?>" selected><?= $status ?></option>
                             <option value="Belum Selesai">Belum Selesai</option>
                             <option value="Progress">Progress</option>
                             <option value="Selesai">Selesai</option>
