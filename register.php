@@ -19,7 +19,7 @@ if (isset($_SESSION['level'])) {
                 <h1>Register</h1>
             </div>
             <div class="form-content">
-            <form id="form" method="POST" action="user.php?aksi=register" >
+            <form id="form" method="POST" action="user.php?aksi=register" enctype="multipart/form-data">
             <div class="form-group">
                         <label for="foto">Photo Profile</label>
                         <input type="file" id="foto" name="gambar" required />

@@ -24,7 +24,7 @@ if ($_GET['aksi'] == 'register') {
     // cek ekstensi yang dibolehkan
     if (in_array($ekstensi, $eks_dibolehkan) === true) {
 
-        if()){
+        if(move_uploaded_file($file_tmp , 'asset/upload/' . $gambar)){
             $sql = "INSERT INTO `user` (`id` , `nama`, `email` , `foto` , `level`, `password`) VALUES ( null , '" . $nama . "' , '" . $email . "' , '".$gambar."' , '" . $level . "' , '" . $password . "')";
 
             $result = mysqli_query($conn, $sql) or die;
