@@ -35,7 +35,9 @@ if ($_GET['aksi'] == 'edit' ) {
     $keterangan = $_POST['keterangan'];
     $status = $_POST['status'];
 
-    $sql = "UPDATE `todo` SET `id_user`= '$id_user', `judul`= '$judul', `deskripsi`= '$keterangan' , `tempat`= '$tempat', `waktu`='$waktu', `kategori` = '$kategori', `status`= '$status' WHERE id = '$id';";   
+    $sql = "UPDATE `todo` SET `id_user`= '$id_user', `judul`= '$judul', 
+    `deskripsi`= '$keterangan' , `tempat`= '$tempat', `waktu`='$waktu', `kategori` = '$kategori',
+     `status`= '$status' WHERE id = '$id';";   
     $result = mysqli_query($conn, $sql );
     
     if ($result) {
@@ -69,7 +71,7 @@ if ($_GET['aksi'] == 'selesai') {
 
     $id = $_GET['id'];
 
-    $sql = "UPDATE todo SET `status` = 'selesai'";   
+    $sql = "UPDATE `todo` SET `status`= 'Selesai' WHERE id = '$id';";   
     $result = mysqli_query($conn, $sql );
     
     if ($result) {

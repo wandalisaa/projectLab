@@ -19,10 +19,15 @@ if (isset($_SESSION['level'])) {
                 <h1>Register</h1>
             </div>
             <div class="form-content">
-            <form id="form" method="POST" action="user.php?aksi=register">
+            <form id="form" method="POST" action="user.php?aksi=register" >
+            <div class="form-group">
+                        <label for="foto">Photo Profile</label>
+                        <input type="file" id="foto" name="gambar" required />
+                        <div id="validasi-foto"></div>
+                    </div>
                     <div class="form-group">
                         <label for="nama">Name</label>
-                        <input type="nama" id="nama" name="nama" required />
+                        <input type="text" id="nama" name="nama" required />
                         <div id="validasi-nama"></div>
                     </div>
                     <div class="form-group">

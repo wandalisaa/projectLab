@@ -286,3 +286,9 @@ body {
     background: #FFFFFF !important;
     color: #4285F4 !important;
   }
+.avatar{
+  background-position: center;
+  background-size: cover;
+  border-radius: 300px;
+}
+}

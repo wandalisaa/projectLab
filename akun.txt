@@ -1,0 +1,7 @@
+user biasa
+wanda@gmail.com
+pass : wandawanda
+
+admin
+admin@gmail.com
+pass : wandawanda
